@@ -1,0 +1,49 @@
+---
+title: "Essential Web Performance Tips for 2024"
+description: "Optimize your web applications with these crucial performance tips"
+pubDate: 2024-03-15
+author: "John Doe"
+heroImage: "/images/performance.webp"
+categories: ["Performance"]
+tags: ["optimization", "web development", "tips"]
+draft: false
+---
+
+# Web Performance Tips for 2024
+
+Performance is crucial for user experience and SEO. Here are essential tips to optimize your web applications.
+
+## Core Web Vitals
+
+1. **Largest Contentful Paint (LCP)**
+   - Optimize image loading
+   - Implement proper caching
+   - Use CDN for assets
+
+2. **First Input Delay (FID)**
+   - Minimize JavaScript execution
+   - Break up long tasks
+   - Optimize event handlers
+
+3. **Cumulative Layout Shift (CLS)**
+   - Set image dimensions
+   - Reserve space for dynamic content
+   - Avoid inserting content above existing content
+
+## Implementation Examples
+
+```javascript
+// Lazy load images
+<img 
+  loading="lazy"
+  src="image.jpg"
+  width="800"
+  height="600"
+  alt="Description"
+/>
+
+// Use async/defer for scripts
+<script async src="analytics.js"></script>
+```
+
+Remember: Performance is not a one-time task but an ongoing process of optimization and monitoring.

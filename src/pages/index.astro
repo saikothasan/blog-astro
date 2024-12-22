@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+
+const posts = await getCollection('posts', ({ data }) => {
+  return !data.draft && data.pubDate <= new Date();
+});
+
+const sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+).slice(0, 6);
+---
+
+<BaseLayout
+  title="Modern Blog - Latest Posts"
+  description="A modern blog built with Astro featuring the latest articles on web development, technology, and more."
+>
+  <section class="space-y-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
+        Welcome to Our Blog
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        Discover the latest insights, tutorials, and thoughts on web development,
+        technology, and digital culture.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {sortedPosts.map((post) => <PostCard post={post} />)}
+    </div>
+
+    <div class="text-center">
+      <a
+        href="/blog"
+        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+      >
+        View All Posts
+      </a>
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <NewsletterForm />
+  </section>
+</BaseLayout>

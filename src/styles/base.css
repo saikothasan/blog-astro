@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+
+  .prose {
+    @apply max-w-none;
+  }
+
+  .prose a {
+    @apply text-indigo-600 dark:text-indigo-400 no-underline hover:underline;
+  }
+
+  .prose img {
+    @apply rounded-lg shadow-md;
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}

@@ -1,0 +1,14 @@
+---
+---
+<!-- Plausible Analytics -->
+<script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script>
+
+<!-- Custom event tracking -->
+<script is:inline>
+  window.addEventListener('astro:page-load', () => {
+    // Track page views
+    if (window.plausible) {
+      window.plausible('pageview');
+    }
+  });
+</script>

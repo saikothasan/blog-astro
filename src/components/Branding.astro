@@ -1,0 +1,35 @@
+---
+interface Props {
+  minimal?: boolean;
+}
+
+const { minimal = false } = Astro.props;
+---
+<div class={`branding ${minimal ? 'minimal' : 'full'}`}>
+  <div class="logo">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="8" class="fill-indigo-600 dark:fill-indigo-500"/>
+      <path d="M20 10L28 25H12L20 10Z" fill="white"/>
+    </svg>
+    <span class="brand-name text-xl font-bold text-gray-900 dark:text-white">
+      TechInsights
+    </span>
+  </div>
+  {!minimal && (
+    <p class="brand-tagline text-gray-600 dark:text-gray-400 mt-2">
+      Exploring the Future of Technology
+    </p>
+  )}
+</div>
+
+<style>
+  .branding {
+    @apply flex flex-col items-center;
+  }
+  .logo {
+    @apply flex items-center gap-2;
+  }
+  .minimal .brand-tagline {
+    @apply hidden;
+  }
+</style>
